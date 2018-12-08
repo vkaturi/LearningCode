@@ -7,6 +7,16 @@ print (sys.version_info)
 import platform
 print(platform.python_version())
 
+################################### Math Operators from Highest to Lowest ###################################
+print '--------------Math Operators from Highest to Lowest----------------'
+print "1. ** Exponent"
+print "2. % Modulus/remainder"
+print "3. // integer division/floored quotient"
+print "4. / Division"
+print "5. * Multiplication"
+print "6. - Subtraction"
+print "7. + Addition"
+
 ################################### booleans ################################
 true_boolean = True
 flase_boolean = False
@@ -19,6 +29,13 @@ version = 2.7
 
 print("---------------Concatenate string and float variables---------------")
 print(my_name+"_"+str(version))
+
+################################ Ending a Program Early ############################
+print "------------------Ending a Program Early-----------------------"
+
+import sys # importing sys module
+print "sys.exit() method will exit the program execution, We can use this for debugging purpose"
+# sys.exit() # This method will exit the program execution, We can use this for debugging purpose
 
 ################################ control structures ################################
 print("---------------Control Structures---------------")
@@ -44,9 +61,20 @@ while num <= 10:
 # The range starts with 1 and goes until the 11th element (10 is the 10th element).
 
 print("---------------For Loop---------------")    
-
+# Calling range(1,11) will count 1 to 10 by intervals of one
+print "Calling range(1,11) will count 1 to 10 by intervals of one"
 for i in range(1, 11):
   print(i)
+
+# Calling range(0, 10, 2) will count from zero to eight by intervals of two.
+print "Calling range(0, 10, 2) will count from zero to eight by intervals of two"
+for i in range(0,10,2):
+    print(i)
+
+# a negative number for the step argument to make the for loop count down instead of up
+print "Calling range(5, -1, -1) will count from 5 to 0 by intervals of -1"
+for i in range(5,-1,-1):
+        print(i)    
 
 ################################ List: Collection | Array | Data Structure ################################
 # List is a collection that can be used to store a list of values
@@ -237,3 +265,56 @@ resident1.showName()
 resident1.showAge()
 print resident1.getId()
 
+
+class A:  
+    def __init__(self):  
+    
+        self.name = 'John'  
+        self.age = 23  
+  
+    def getName(self):  
+        return self.name  
+  
+  
+class B: 
+    id = 32 
+    def __init__(self):  
+    
+        self.name = 'Richard'  
+        self.id = id  
+  
+    def getName(self):  
+        return self.name  
+
+    # def getId(self):  
+    #     return self.id  
+  
+  
+class C(A, B):  
+    def __init__(self):  
+        # A.__init__(self)  
+        # B.__init__(self)
+        self.name = 'c class name'
+  
+    def getName(self):  
+        return self.name  
+
+    def getId(self):
+        return B.getName(B())
+
+C1 = C()  
+print(C1.getName())  
+print(C1.getId())
+
+
+##################### Importing Modules ##############################
+# Python comes with a set of modules called the standard library. 
+# Each module is a Python program that contains a related group of functions that can be embedded in your programs.
+# The import keyword, The name of the module, 
+# Optionally, more module names, as long as they are separated by commas
+# import random, sys, os, math - to import multiple modules
+
+print "------------------------Importing Modules-------------------------"
+import random 
+for i in range(5):
+    print(random.randint(1, 10))
