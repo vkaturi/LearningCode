@@ -143,6 +143,62 @@ The message to take home from this example would be that it is easy to switch de
 only we avoid the bad practice of creating the objects on which the main class depends inside the
 constructor, and adopt the good practice of injecting the objects on which the class depends from
 the outside
+
+How to make a dependency injection through a setter method?
+-----------------------------------------------------------
+We may also choose to inject the objects on which the class is dependent through a setter method.
+Let’s start again by writing the HumanDriver class with exactly the same code as in the previous
+example.
+
+*/
+
+interface Driver {
+	public function sayYourName($name);
+}
+
+class HumanDriver implements Driver {
+	public function sayYourName($name)
+	{
+		return $name;
+	}
+}
+
+// We will equip the Car class with a setDriver() method that is responsible for setting the $driver value.
+
+class Car {
+	protected $driver;
+	// The setDriver method sets
+	// the value for the driver property
+	public function setDriver(Driver $driver)
+	{
+		$this -> driver = $driver;
+	}
+	public function getDriver()
+	{
+		return $this -> driver;
+	}
+}
+
+// Now, we can create the driver object outside the car, inject it to the car with the setDriver() method, and echo the driver’s name.
+
+$driver = new HumanDriver();
+$car = new Car();
+// Inject the driver to the car object
+$car -> setDriver($driver);
+echo $car -> getDriver() -> sayYourName("Bob");
+
+// Result:
+// Bob
+
+/*
+Conclusion
+-----------
+When we use dependency injection we pass the objects on which our class depends
+to the class from the outside.
+When we use dependency injection we pass the objects on which our class depends to the class
+from the outside, instead of creating these objects within the class. By doing so, we make our code
+more maintainable and flexible. It is also advisable to type hint the injected objects in order to make
+it clear on which type of objects does the main class depend.
 */
 
 ?>
