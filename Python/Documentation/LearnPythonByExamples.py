@@ -23,6 +23,7 @@ flase_boolean = False
 
 ################################ strings ################################
 my_name = "Venkat"+" K"
+print("Today I had {0} cups of {1}", format(3, 'tea'))
 
 ################################# float ################################
 version = 2.7
